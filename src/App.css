@@ -74,9 +74,26 @@ nav .nav-wrapper {
   box-shadow: 0 1px 0 0 #000;
 }
 
+button{
+  background-color: #e7e7e7; /* Green */
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+select{
+  border: 2px solid rgb(48, 10, 218);
+  border-radius: 4px;
+}
 input[type=text]:not(.browser-default) {
   border-bottom: 1px solid white;
   color: white;
+  border: 2px solid rgb(48, 10, 218);
+  border-radius: 4px;
 }
 input[type=text]:not(.browser-default):focus:not([readonly]) {
   border-bottom: 1px solid white;
@@ -90,6 +107,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) + label {
 .contenedor-form {
   padding: 3rem 0 1px 0;
   background-color: #03a9f4;
+  padding: 1rem;
 }
 .mensaje {
   text-align: center;

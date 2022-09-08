@@ -1,11 +1,26 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from "axios"
 
 const Form = () => {
 
+    const [lugarForm, setLugarForm] = useState(
+        {
+            pais:"",
+            ciudad:""
+        }
+    )
+
     const handleChange = (e) => {
-        agregarDato(e.target.name, e.target.value);
+        setLugarForm({
+            ...lugarForm,
+            [e.target.name]: e.target.value
+        })
     }
+
+    useEffect(() => {
+      console.log(lugarForm)
+    }, [lugarForm])
+    
 
     return (
         <div className="contenedor-form">
@@ -15,27 +30,26 @@ const Form = () => {
                         <form>
                             <div className="input-field col s12">
                                 <label htmlFor="ciudad" className="active">Ciudad:</label>
-                                <input type="text" name="ciudad" id="ciudad" onChange={handleChange}></input>
+                                <input type="text" name="ciudad" id="ciudad" onChange={handleChange} style={{color: '#000'}}></input>
                             </div>
                             <div className="input-field col s12">
                                 <div className="select-wrapper">
-                                    <input className="select-dropdown dropdown-trigger" type="text" readOnly="true" data-target="select-options-8d2743a6-734a-067b-9260-f2222257c15e"></input>
-                                    <ul id="select-options-8d2743a6-734a-067b-9260-f2222257c15e" className="dropdown-content select-dropdown" tabIndex="0" style="">
-                                        <li id="select-options-8d2743a6-734a-067b-9260-f2222257c15e0" tabIndex="0" className="selected"><span>-- Seleccion un Pais --</span></li>
-                                        <li id="select-options-8d2743a6-734a-067b-9260-f2222257c15e1" tabIndex="0"><span>Estados Unidos</span></li>
-                                        <li id="select-options-8d2743a6-734a-067b-9260-f2222257c15e2" tabIndex="0"><span>México</span></li>
-                                        <li id="select-options-8d2743a6-734a-067b-9260-f2222257c15e3" tabIndex="0"><span>Argentina</span></li>
-                                        <li id="select-options-8d2743a6-734a-067b-9260-f2222257c15e4" tabIndex="0"><span>Colombia</span></li>
-                                        <li id="select-options-8d2743a6-734a-067b-9260-f2222257c15e5" tabIndex="0"><span>Costa Rica</span></li>
-                                        <li id="select-options-8d2743a6-734a-067b-9260-f2222257c15e6" tabIndex="0"><span>España</span></li>
-                                        <li id="select-options-8d2743a6-734a-067b-9260-f2222257c15e7" tabIndex="0"><span>Perú</span></li>
-                                    </ul>
+                                    {/* <select className="select-dropdown dropdown-trigger" name="pais" type="" readOnly={true} data-target="select-options-8d2743a6-734a-067b-9260-f2222257c15e" onChange={handleChange}>
+                                        <option id="select-options-8d2743a6-734a-067b-9260-f2222257c15e0" tabIndex="0" className="selected"><span>-- Seleccion un Pais --</span></option>
+                                        <option id="select-options-8d2743a6-734a-067b-9260-f2222257c15e1" tabIndex="0"><span>Estados Unidos</span></option>
+                                        <option id="select-options-8d2743a6-734a-067b-9260-f2222257c15e2" tabIndex="0"><span>México</span></option>
+                                        <option id="select-options-8d2743a6-734a-067b-9260-f2222257c15e3" tabIndex="0"><span>Argentina</span></option>
+                                        <option id="select-options-8d2743a6-734a-067b-9260-f2222257c15e4" tabIndex="0"><span>Colombia</span></option>
+                                        <option id="select-options-8d2743a6-734a-067b-9260-f2222257c15e5" tabIndex="0"><span>Costa Rica</span></option>
+                                        <option id="select-options-8d2743a6-734a-067b-9260-f2222257c15e6" tabIndex="0"><span>España</span></option>
+                                        <option id="select-options-8d2743a6-734a-067b-9260-f2222257c15e7" tabIndex="0"><span>Perú</span></option>
+                                    </select>
                                     <svg className="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M7 10l5 5 5-5z"></path>
                                         <path d="M0 0h24v24H0z" fill="none"></path>
-                                    </svg>
+                                    </svg> */}
                                     <label htmlFor="pais">Pais:</label>
-                                    <select name="pais" id="pais" tabIndex="-1">
+                                    <select name="pais" id="pais" tabIndex="-1" onChange={handleChange}>
                                         <option value="">-- Seleccion un Pais --</option>
                                         <option value="US">Estados Unidos</option>
                                         <option value="MX">México</option>
@@ -48,10 +62,7 @@ const Form = () => {
                                 </div>
                                 
                             </div>
-                            <div className="input-field col s12">
-                                <i className="waves-effect waves-light btn-large btn-block yellow accent-4 waves-input-wrapper" style="">
-                                    <input type="submit" value="Buscar Clima" className="waves-button-input"></input></i>
-                            </div>
+                            <button>Buscar Clima</button>
                         </form>
                     </div>
                 </div>
