@@ -62,7 +62,8 @@ const Form = () => {
                                 </div>
                                 
                             </div>
-                            <button>Buscar Clima</button>
+                            
+                            <button onClick={console.log("hola")}>Buscar Clima</button>
                         </form>
                     </div>
                 </div>
