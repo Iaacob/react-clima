@@ -1,14 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import axios from "axios"
 
-const Form = () => {
+const Form = ({lugarForm, setLugarForm}) => {
 
-    const [lugarForm, setLugarForm] = useState(
-        {
-            pais:"",
-            ciudad:""
-        }
-    )
+    
 
     const handleChange = (e) => {
         setLugarForm({
@@ -16,11 +11,6 @@ const Form = () => {
             [e.target.name]: e.target.value
         })
     }
-
-    useEffect(() => {
-      console.log(lugarForm)
-    }, [lugarForm])
-    
 
     return (
         <div className="contenedor-form">
@@ -63,7 +53,7 @@ const Form = () => {
                                 
                             </div>
                             
-                            <button onClick={console.log("hola")}>Buscar Clima</button>
+                            <button onClick={}>Buscar Clima</button>
                         </form>
                     </div>
                 </div>
