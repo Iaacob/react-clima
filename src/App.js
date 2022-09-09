@@ -6,15 +6,12 @@ import './App.css';
 
 function App() {
 
-  const res = await axios.get("http://api.openweathermap.org/data/2.5/weather?q=buenos%20aires,argentina&APPID=467eb2e2a1738c82e813a30610d7c354")
-
-  const [lugarForm, setLugarForm] = useState(
+  const [lugar, setLugar] = useState(
     {
         pais:"",
         ciudad:""
     }
 )
-
   return (
     <>
     <div className="App">
@@ -23,10 +20,10 @@ function App() {
           <Header/>
           <div style={{display: 'flex', flexDirection: 'row'}}>
           <div style={{flex: 1}}>
-          <Form lugarForm={lugarForm} setLugarForm={setLugarForm}/>
+          <Form lugar={lugar} setLugar={setLugar}/>
           </div>
           <div style={{flex: 1}}>
-          <Card lugarForm={lugarForm}/>
+          <Card lugar={lugar}/>
           </div>
           </div>
         </div>

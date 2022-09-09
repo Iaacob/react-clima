@@ -1,9 +1,12 @@
-import React from 'react'
-import axios from "axios"
+import React, {useState} from 'react'
 
-const Form = ({lugarForm, setLugarForm}) => {
+const Form = ({setLugar}) => {
 
-    
+    const [lugarForm, setLugarForm] = useState({
+        pais:"",
+        ciudad:""
+    })
+
 
     const handleChange = (e) => {
         setLugarForm({
@@ -53,7 +56,7 @@ const Form = ({lugarForm, setLugarForm}) => {
                                 
                             </div>
                             
-                            <button onClick={}>Buscar Clima</button>
+                            <button onClick={ () => {setLugar(lugarForm)}}>Buscar Clima</button>
                         </form>
                     </div>
                 </div>
