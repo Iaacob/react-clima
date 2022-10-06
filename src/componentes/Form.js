@@ -1,61 +1,62 @@
-import React, {useState} from 'react'
-
-const Form = ({setLugar}) => {
-
+import React, { useState } from 'react'
+ 
+const Form = ({ setLugar }) => {
+ 
     const [lugarForm, setLugarForm] = useState({
-        pais:"",
-        ciudad:""
+        pais: "AR",
+        ciudad: ""
     })
 
-    const [error,setError] = useState(false);
-
-
-
-
-
+    const {pais,ciudad} = lugarForm;
+ 
+    const [error, setError] = useState(false);
+ 
     const handleChange = (e) => {
         setLugarForm({
             ...lugarForm,
             [e.target.name]: e.target.value
         })
     }
-
-    const handleSubmit = (e) =>{
-        e.prevenDefault();
-
+ 
+    const handleSubmit = (e) => {        
+        e.preventDefault();
+ 
+        console.log('aaa')
+ 
         setLugar(lugarForm)
-
-        if(lugarForm.pais==='' || lugarForm.ciudad===''){
+ 
+        if (pais === '' || ciudad === '') {
             setError(true)
             return;
         }
-
+ 
         setError(false)
+ 
     }
-    
+ 
     return (
         <form onSubmit={handleSubmit}>
+            {error && <div className="error">Debe completar todos los campos</div> }
+ 
             <div className="input-field col s12">
                 <label htmlFor="ciudad" className="active">Ciudad:</label>
                 <input type="text" name="ciudad" id="ciudad" onChange={handleChange} style={{ color: '#000' }}></input>
             </div>
-            <div className="input-field col s12">
-                <div className="select-wrapper">
-                    <label htmlFor="pais">Pais:</label>
-                    <select name="pais" id="pais" tabIndex="-1" onChange={handleChange}>
-                        <option value="">-- Seleccion un Pais --</option>
-                        <option value="US">Estados Unidos</option>
-                        <option value="MX">México</option>
-                        <option value="AR">Argentina</option>
-                        <option value="CO">Colombia</option>
-                        <option value="CR">Costa Rica</option>
-                        <option value="ES">España</option>
-                        <option value="PE">Perú</option>
-                    </select>
-                </div>
-
+ 
+            <div className="input-field col s12">                
+                <select name="pais" id="pais" onChange={handleChange} value={pais}>
+                    <option value="">-- Seleccion un Pais --</option>
+                    <option value="US">Estados Unidos</option>
+                    <option value="MX">México</option>
+                    <option value="AR">Argentina</option>
+                    <option value="CO">Colombia</option>
+                    <option value="CR">Costa Rica</option>
+                    <option value="ES">España</option>
+                    <option value="PE">Perú</option>
+                </select>                
+                <label htmlfor="pais">Pais:</label>
             </div>
-
+ 
             <div className="input-field col s12">
                 <input
                     type="submit"
@@ -64,8 +65,8 @@ const Form = ({setLugar}) => {
                 />
             </div>
         </form>
-
+ 
     )
 }
-
+ 
 export default Form
