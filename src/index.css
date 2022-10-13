@@ -45,13 +45,6 @@ input[type=text]:not(.browser-default):focus:not([readonly]) + label {
 .buscador i {
   width: 100%;
 }
-.error {
-  padding: 1rem!important;
-  color:white;
-  margin-top: 3rem;
-  text-align: center;
-  text-emphasis: left;
-}
 .card-panel h2 {
   font-size: 1.6rem;
   text-align: center;
@@ -75,5 +68,5 @@ input[type=text]:not(.browser-default):focus:not([readonly]) + label {
 .error {
   padding: 1rem!important;
   text-align: center!important;
-  color: #FFF!important;
+  color: rgb(255, 32, 32)!important;
 }

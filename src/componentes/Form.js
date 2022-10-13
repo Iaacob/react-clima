@@ -36,7 +36,7 @@ const Form = ({ setLugar }) => {
  
     return (
         <form onSubmit={handleSubmit}>
-            {error && <div className="error">Debe completar todos los campos</div> }
+            {error && <div className="error">DEBE COMPLETAR TODOS LOS CAMPOS</div> }
  
             <div className="input-field col s12">
                 <label htmlFor="ciudad" className="active">Ciudad:</label>

@@ -15,25 +15,20 @@ function App() {
   )
 
   const [clima,setClima] = useState(
-    {
-      feels_like:"",
-      humidity:"",
-      pressure:"",
-      temp:"",
-      temp_max:"",
-      temp_min:""
-    }
+    null
   )
 
   useEffect(()=>{
-    axios.get('http://api.openweathermap.org/data/2.5/weather?q=buenos%20aires,argentina&APPID=467eb2e2a1738c82e813a30610d7c354')
+    axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${lugar.ciudad},${lugar.pais}&APPID=467eb2e2a1738c82e813a30610d7c354`)
     .then(result=>{
-      setClima(result.data.main)
+      setClima(result.data)
     })
     .catch(error=>{
       console.log(error);
     })
   },[lugar])
+
+  console.log('clima',clima)
 
   return (
     <>
